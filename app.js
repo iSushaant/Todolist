@@ -6,7 +6,10 @@ const bodyParser = require("body-parser");
 const app = express();
 
 app.get("/", (req, res)=>{
-    res.send("Hello");
+    
+    var today = new Date();
+
+    (today.getDay() === 0 || today.getDay() === 6)?(res.send("Yay! its weekend")):(res.send("No! its " + today.getDay() + " I gotta work"))
 });
 
 app.listen(3000, ()=>{
