@@ -8,5 +8,21 @@
 </head>
 <body>
     <h1> <%= kindOfDay %>! </h1>
+
+    <ul>
+   <% for(var i=0; i<newListItems.length; i++){  %>
+      <li> <%= newListItems[i] %> </li>
+   <% } %>
+</ul>
+
+<form action="/" method="post">
+
+<label for="newItem">Add</label>
+<input type="text" id="newItem" name="newItem">
+
+<button type="submit" name="button">Submit</button>
+
+</form>
+
 </body>
 </html>
