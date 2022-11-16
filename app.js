@@ -1,4 +1,4 @@
-//jshint esversion:6
+//jshint esversion:6let
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -7,24 +7,25 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
-var items = ["buy Food", "Cook Food", "Eat Food"];
+let items = ["buy Food", "Cook Food", "Eat Food"];
+let workItems = [];
 
 app.get("/", (req, res)=> {
 
-var today = new Date();
+let today = new Date();
 
-
-var options = {
+ 
+let options = {
   weekday : 'long',
   day : 'numeric',
   month : 'long'
 };  
-    var day = today.toLocaleDateString("en-US", options);
+    let day = today.toLocaleDateString("en-US", options);
       res.render("list", {kindOfDay: day, newListItems: items});
 });
 
 app.post("/", (req, res)=> {
- item = req.body.newItem;
+ let item = req.body.newItem;
 
  items.push(item);
 
